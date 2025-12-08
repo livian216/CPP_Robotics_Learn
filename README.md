@@ -144,33 +144,29 @@
 加油！这一个月会很枯燥，因为全是黑底白字的控制台，但只有打好这个基础，你才能驾驭复杂的无人机系统。
 
 
-
-
----
-
 祝贺你完成了第一个月的基础训练！你已经跨过了“语法”的门槛。
 
-第二个月的主题是：工程化与数学基础。
+**第二个月的主题是：工程化与数学基础。**
 
-做无人机算法，不能只写一个 main.cpp。你需要学会管理复杂的项目（CMake），处理并发任务（多线程），以及掌握机器人赖以生存的数学（矩阵与向量）。
+做无人机算法，不能只写一个 `main.cpp`。你需要学会管理复杂的项目（CMake），处理并发任务（多线程），以及掌握机器人赖以生存的数学（矩阵与向量）。
 
 这是从“写代码”到“做工程”的质变。
 
-
 ---
 
-📅 第五周：工程构建与模块化 (CMake)
-目标：告别命令行 g++，学会使用 CMake 构建项目；学会将代码拆分为 .h (头文件) 和 .cpp (源文件)。
+### 📅 第五周：工程构建与模块化 (CMake)
+**目标**：告别命令行 `g++`，学会使用 CMake 构建项目；学会将代码拆分为 `.h` (头文件) 和 `.cpp` (源文件)。
 
-- Day 31-33: 头文件与源文件分离
-  - 概念：声明（Declaration）与定义（Definition）的区别。防止重复包含 (#ifndef).
-- Day 34-37: CMake 基础
-  - 概念：CMakeLists.txt 编写，编译流程。
-    
-✅ [标准示例] 模块化项目结构
+*   **Day 31-33: 头文件与源文件分离**
+    *   概念：声明（Declaration）与定义（Definition）的区别。防止重复包含 (`#ifndef`).
+*   **Day 34-37: CMake 基础**
+    *   概念：`CMakeLists.txt` 编写，编译流程。
+
+#### ✅ [标准示例] 模块化项目结构
 由于这里涉及多个文件，请在你的文件夹中创建以下三个文件，然后编译。
 
-文件 1: VectorMath.h (头文件 - 声明)
+**文件 1: `VectorMath.h` (头文件 - 声明)**
+```cpp
 // VectorMath.h
 // #ifndef 防止头文件被多次引用导致编译错误
 #ifndef VECTOR_MATH_H 
@@ -188,8 +184,10 @@ struct Vec2 {
 };
 
 #endif
+```
 
-文件 2: VectorMath.cpp (源文件 - 实现)
+**文件 2: `VectorMath.cpp` (源文件 - 实现)**
+```cpp
 // VectorMath.cpp
 #include <iostream>
 #include "VectorMath.h" // 引入刚才写的头文件
@@ -207,8 +205,10 @@ Vec2 Vec2::add(const Vec2& other) {
 void Vec2::print() {
     std::cout << "Vector(" << x << ", " << y << ")" << std::endl;
 }
+```
 
-文件 3: main.cpp (主程序)
+**文件 3: `main.cpp` (主程序)**
+```cpp
 // main.cpp
 #include <iostream>
 #include "VectorMath.h"
@@ -226,37 +226,40 @@ int main() {
 
     return 0;
 }
+```
 
-如何编译运行 (重点)：
-你需要创建一个名为 CMakeLists.txt 的文件（这是行业标准）：
+**如何编译运行 (重点)**：
+你需要创建一个名为 `CMakeLists.txt` 的文件（这是行业标准）：
 
+```cmake
 # CMakeLists.txt
 cmake_minimum_required(VERSION 3.10)
 project(DroneProject)
 
 # 添加可执行文件，包含所有源文件
 add_executable(my_drone main.cpp VectorMath.cpp)
+```
 
-操作步骤：
-1. 安装 CMake (sudo apt install cmake 或 Windows 安装包)。
+*操作步骤*：
+1. 安装 CMake (`sudo apt install cmake` 或 Windows 安装包)。
 2. 在终端输入：
-mkdir build && cd build
-cmake ..
-make (Windows下是 cmake --build .)
+   `mkdir build && cd build`
+   `cmake ..`
+   `make` (Windows下是 `cmake --build .`)
 3. 运行生成的程序。
-  
 
 ---
 
-📅 第六周：机器人数学基础 (Eigen风格)
-目标：无人机在三维空间运动，核心是“线性代数”。虽然主要用 Eigen 库，但为了让你理解底层，我们本周手写一个简易的向量类，模拟 Eigen 的用法。
+### 📅 第六周：机器人数学基础 (Eigen风格)
+**目标**：无人机在三维空间运动，核心是“线性代数”。虽然主要用 `Eigen` 库，但为了让你理解底层，我们本周手写一个简易的向量类，模拟 Eigen 的用法。
 
-- Day 38-40: 向量运算
-  - 内容：点乘（Dot Product，判断前后），叉乘（Cross Product，判断左右/法线）。
-- Day 41-44: 坐标变换
-  - 内容：旋转矩阵。将“机体坐标系”（前是X）转换为“世界坐标系”（东是X）。
-    
-✅ [标准示例] 模拟坐标变换
+*   **Day 38-40: 向量运算**
+    *   内容：点乘（Dot Product，判断前后），叉乘（Cross Product，判断左右/法线）。
+*   **Day 41-44: 坐标变换**
+    *   内容：旋转矩阵。将“机体坐标系”（前是X）转换为“世界坐标系”（东是X）。
+
+#### ✅ [标准示例] 模拟坐标变换
+```cpp
 // Week6_Math.cpp
 #include <iostream>
 #include <cmath> //用于 sin, cos
@@ -314,19 +317,20 @@ int main() {
 
     return 0;
 }
-
+```
 
 ---
 
-📅 第七周：多线程与并发 (Concurrency)
-目标：真实机器人中，传感器在一直读，电机在一直转，算法在一直算。它们必须并行运行，不能互相卡死。
+### 📅 第七周：多线程与并发 (Concurrency)
+**目标**：真实机器人中，传感器在一直读，电机在一直转，算法在一直算。它们必须并行运行，不能互相卡死。
 
-- Day 45-47: 线程基础 (Thread)
-  - 内容：std::thread, join, detach。
-- Day 48-51: 数据竞争与互斥锁 (Mutex)
-  - 内容：std::mutex, std::lock_guard。防止两个线程同时修改同一个变量导致崩溃。
-    
-✅ [标准示例] 传感器线程与控制线程
+*   **Day 45-47: 线程基础 (Thread)**
+    *   内容：`std::thread`, `join`, `detach`。
+*   **Day 48-51: 数据竞争与互斥锁 (Mutex)**
+    *   内容：`std::mutex`, `std::lock_guard`。防止两个线程同时修改同一个变量导致崩溃。
+
+#### ✅ [标准示例] 传感器线程与控制线程
+```cpp
 // Week7_Threads.cpp
 #include <iostream>
 #include <thread> // 线程库
@@ -401,19 +405,20 @@ int main() {
     std::cout << "系统安全关闭。" << std::endl;
     return 0;
 }
-
+```
 
 ---
 
-📅 第八周：综合仿真架构 - 虚拟自动驾驶
-目标：结合 OOP、数学和逻辑，编写一个无需图形界面但逻辑严密的“自动导航”核心。
+### 📅 第八周：综合仿真架构 - 虚拟自动驾驶
+**目标**：结合 OOP、数学和逻辑，编写一个无需图形界面但逻辑严密的“自动导航”核心。
 
-- Day 52-60: 导航算法实现
-  - 场景：在一个连续的 2D 空间中，无人机从 A 飞向 B，中间有一个圆形障碍物。无人机需要检测距离并绕行。
-    
-✅ [标准示例] 势场法避障核心逻辑
+*   **Day 52-60: 导航算法实现**
+    *   场景：在一个连续的 2D 空间中，无人机从 A 飞向 B，中间有一个圆形障碍物。无人机需要检测距离并绕行。
+
+#### ✅ [标准示例] 势场法避障核心逻辑
 这是一个非常经典的机器人算法简化版。
 
+```cpp
 // Week8_AutoPilot.cpp
 #include <iostream>
 #include <cmath>
@@ -520,19 +525,19 @@ int main() {
 
     return 0;
 }
-
+```
 
 ---
 
-🚀 两个月结业总结与展望
+### 🚀 两个月结业总结与展望
 当你运行完第八周的代码，你会发现：
-1. 无人机并没有直线飞向 (10,10)，而是在接近 (5,5) 时自动绕了个弯。
-2. 这就是路径规划与控制的雏形。
-  
-接下来的路（Month 3+）:
-这时候你已经具备了学习 ROS 2 (Robot Operating System) 的所有前置知识：
-- 你知道怎么写 CMakeLists.txt (ROS2 编译基础)。
-- 你理解了 Vector3 和 Transform (ROS2 TF2 坐标变换基础)。
-- 你理解了 thread 和 Callback (ROS2 Node 节点通信基础)。
-  
-现在的你，已经不再是零基础小白，而是一名准机器人算法工程师。加油！
+1.  无人机并没有直线飞向 (10,10)，而是在接近 (5,5) 时**自动绕了个弯**。
+2.  这就是**路径规划**与**控制**的雏形。
+
+**接下来的路（Month 3+）**:
+这时候你已经具备了学习 **ROS 2 (Robot Operating System)** 的所有前置知识：
+*   你知道怎么写 `CMakeLists.txt` (ROS2 编译基础)。
+*   你理解了 `Vector3` 和 `Transform` (ROS2 TF2 坐标变换基础)。
+*   你理解了 `thread` 和 `Callback` (ROS2 Node 节点通信基础)。
+
+现在的你，已经不再是零基础小白，而是一名**准机器人算法工程师**。加油！
