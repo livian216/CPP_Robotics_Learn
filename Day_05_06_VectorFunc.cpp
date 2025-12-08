@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
-#include <math>
+#include <cmath>
 
 // --- Day 6: 函数定义 ---
 // 计算两点间距离的函数：sqrt((x1 - x2)^2 + (y1 - y2)^2)
-doubel calculateDistance(double x1, double y1, double x2, double y2) {
+double calculateDistance(double x1, double y1, double x2, double y2) {
     double dx = x1 -x2;
     double dy = y1 - y2;
     return std::sqrt(dx * dx + dy * dy);
