@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/Week6_Math.dir/Week6_Math.cpp.o  -o Week6_Math 
