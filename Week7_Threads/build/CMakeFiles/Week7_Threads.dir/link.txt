@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/Week7_Threads.dir/Week7_Threads.cpp.o  -o Week7_Threads  -lpthread 
