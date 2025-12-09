@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/livian/workspace/CPP_Robotics_Learn/Week8_AutoPilot/Week8_AutoPilot.cpp
+iostream
+-
+cmath
+-
+vector
+-
+thread
+-
+chrono
+-
+

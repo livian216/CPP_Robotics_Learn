@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/Week8_AutoPilot_Visual.dir/Week8_AutoPilot_Visual.cpp.o  -o Week8_AutoPilot_Visual  -lpthread 

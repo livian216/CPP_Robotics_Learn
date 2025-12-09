@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/livian/workspace/CPP_Robotics_Learn/Week8_AutoPilot/Week8_AutoPilot_Visual.cpp
+iostream
+-
+cmath
+-
+vector
+-
+thread
+-
+chrono
+-
+fstream
+-
+sstream
+-
+sys/stat.h
+-
+

@@ -1,0 +1,15 @@
+type,x,y
+path,0.08,0.06
+path,0.16,0.12
+path,0.24,0.18
+path,0.32,0.24
+path,0.4,0.3
+path,0.48,0.36
+path,0.56,0.42
+path,0.64,0.48
+path,0.72,0.54
+path,0.8,0.6
+path,0.88,0.66
+drone,0.88,0.66
+target,10,7.5
+obstacle,5,5
