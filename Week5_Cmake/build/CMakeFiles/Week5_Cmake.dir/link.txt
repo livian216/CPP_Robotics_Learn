@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/Week5_Cmake.dir/main.cpp.o CMakeFiles/Week5_Cmake.dir/VectorMath.cpp.o  -o Week5_Cmake 

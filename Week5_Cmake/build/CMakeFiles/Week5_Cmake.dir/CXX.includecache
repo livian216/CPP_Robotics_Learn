@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/livian/workspace/CPP_Robotics_Learn/Week5_Cmake/VectorMath.h
+
+/home/livian/workspace/CPP_Robotics_Learn/Week5_Cmake/main.cpp
+iostream
+-
+VectorMath.h
+/home/livian/workspace/CPP_Robotics_Learn/Week5_Cmake/VectorMath.h
+
